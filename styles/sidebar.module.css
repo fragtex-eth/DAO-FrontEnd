@@ -59,3 +59,13 @@
   background-color: #e94d94;
   border-radius: 10px;
 }
+.rect {
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 18px;
+
+  color: #ffffff;
+  margin: 0;
+}

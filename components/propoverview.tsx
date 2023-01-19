@@ -46,6 +46,7 @@ export default function PropOverview({}: Props) {
   const singleprops = proposals.map((proposals) => (
     <div
       className={styles.singleprop}
+      key={proposals.id}
       style={
         proposals.status == "Active"
           ? { border: "0.5px solid #1cf6f7" }
