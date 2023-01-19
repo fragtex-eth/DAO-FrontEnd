@@ -1,0 +1,29 @@
+.content {
+  background: #232534;
+  box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+  padding: 15px;
+  padding-left: 20px;
+  padding-right: 20px;
+  min-height: 120px;
+  min-width: 0px;
+  margin-left: 20px;
+  height: 230px;
+  overflow: scroll;
+}
+.singleprop {
+  border-radius: 5px;
+  min-width: 350px;
+  height: 60px;
+  padding: 7px;
+  text-align: left;
+  margin-top: 10px;
+}
+.head {
+  display: flex;
+  justify-content: space-between;
+}
+.desc {
+  margin-top: 2px;
+  font-size: 10px;
+}

@@ -1,0 +1,39 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  margin: 10px;
+  height: 50px;
+  align-items: center;
+  padding: 20px;
+}
+
+.navbtn {
+  all: unset;
+  background: #1cf6f7;
+  border-radius: 10px;
+  width: 200px;
+  height: 50px;
+  /* identical to box height */
+
+  color: #1d1f2c;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.connectbtn {
+  all: unset;
+  background: #e94d94;
+  border-radius: 10px;
+  width: 200px;
+  height: 50px;
+
+  /* identical to box height */
+
+  color: #ffffff;
+}
+.connectbtn:hover {
+  box-shadow: 0px 0px 5px #e94d94;
+}
+.separate {
+  border: 1px solid #ffffff;
+}

@@ -1,0 +1,84 @@
+.wholesec {
+  margin-bottom: 25px;
+  margin-top: 7px;
+}
+.section {
+  display: flex;
+  justify-content: center;
+  justify-content: space-between;
+}
+.btnsection {
+  display: flex;
+  justify-content: center;
+  justify-content: space-between;
+  margin-top: 25px;
+}
+.rect {
+  background: #232534;
+  box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+  padding: 15px;
+  padding-left: 20px;
+  padding-right: 20px;
+  height: 120px;
+  margin-bottom: 15px;
+  overflow: scroll;
+  text-align: justify;
+}
+
+.point {
+  background: #232534;
+  box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+  padding: 5px;
+  height: 120px;
+  max-width: 150px;
+  overflow: scroll;
+  text-align: left;
+  padding: 5px;
+}
+
+.pointmid {
+  background: #232534;
+  box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+  padding: 5px;
+  height: 120px;
+  max-width: 150px;
+  overflow: scroll;
+  margin-left: 10px;
+  margin-right: 10px;
+  text-align: left;
+  padding: 5px;
+}
+.vote {
+  all: unset;
+  background: #1cf6f7;
+  border-radius: 10px;
+  width: 150px;
+  height: 50px;
+  /* identical to box height */
+
+  color: #1d1f2c;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.submit:hover {
+  box-shadow: 0px 0px 5px #e94d94;
+}
+.submit {
+  all: unset;
+  background: #e94d94;
+  border-radius: 10px;
+  width: 150px;
+  height: 50px;
+  /* identical to box height */
+
+  color: #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 10px;
+  margin-right: 10px;
+}
