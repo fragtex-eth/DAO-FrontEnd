@@ -27,11 +27,13 @@ export const GET_PROPOSALS_CREATED = gql`
 
 export const GET_VOTE_CAST = gql`
   {
-    voteCast {
+    voteCasts(first: 10, orderBy: proposalId, orderDirection: desc) {
       proposalId
       reason
+      support
       voter
       weight
+      id
     }
   }
 `;

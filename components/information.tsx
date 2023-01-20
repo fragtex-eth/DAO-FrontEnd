@@ -16,7 +16,6 @@ export default function Information({}: any) {
   let response: any = null;
   let response2: any = null;
   useEffect(() => {
-    console.log(process.env.NEXT_PUBLIC_ETHERSCANAPI);
     new Promise(async (resolve, reject) => {
       try {
         response = await axios.get(

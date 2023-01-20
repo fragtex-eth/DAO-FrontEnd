@@ -1,56 +1,36 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styles from "@/styles/sidebar.module.css";
 import abbreviateNumber from "./convertnumber";
-
+import { GET_VOTE_CAST, GET_PROPOSALS_CREATED } from "./graphFetch";
+import { useQuery } from "@apollo/client";
 type Props = {};
 
 export default function Votes({}: Props) {
-  const votes = [
-    {
-      address: "0x71C7656EC7ab88b092defB751B7401B5f6d8976F",
-      vote: "Yes",
-      power: 1200,
-    },
-    {
-      address: "0x71C7656EC7ab88b098defB751B7401B5f6d8976F",
-      vote: "No",
-      power: 32,
-    },
-    {
-      address: "0x71C7656EC7ab88b028defB751B7401B5f6d8976F",
-      vote: "Yes",
-      power: 124,
-    },
-    {
-      address: "0x71C7656EC7ab88b098defB721B7401B5f6d8976F",
-      vote: "Yes",
-      power: 55,
-    },
-    {
-      address: "0x71C7656EC7ab88b098de1B751B7401B5f6d8976F",
-      vote: "Yes",
-      power: 1,
-    },
-    {
-      address: "0x71C7656EC7ab88b098defB741B7401B5f6d8976F",
-      vote: "No",
-      power: 3444,
-    },
-    {
-      address: "0x71C7656EC7ab88b098defB753B7401B5f6d8976F",
-      vote: "Yes",
-      power: 1200,
-    },
-  ];
-  const allVotes = votes.map((votes) => (
-    <tr key={votes.address}>
-      <td className={styles.address}>
-        {votes.address.slice(0, 4)}...{votes.address.slice(-4)}
-      </td>
-      <td className={styles.vote}>{votes.vote}</td>
-      <td>{abbreviateNumber(votes.power)}</td>
-    </tr>
-  ));
+  const [proposalId, setProposalId] = useState(
+    "108126991459394426992428236085723529571472394200392151437941366981754403947842"
+  );
+  const { loading, error, data } = useQuery(GET_VOTE_CAST);
+
+  console.log(loading ? "loading" : data.voteCasts[0]);
+  const voteMeaning = ["No", "Yes", "Abstain"];
+
+  const allVotes = loading
+    ? "loading"
+    : data.voteCasts.map((votes: any) =>
+        parseInt(votes.weight) === 0 || votes.proposalId !== proposalId ? (
+          ""
+        ) : (
+          <tr key={votes.address}>
+            <td className={styles.address}>
+              {votes.voter.slice(0, 4)}...{votes.voter.slice(-4)}
+            </td>
+            <td className={styles.vote}>{voteMeaning[votes.support]}</td>
+            <td>
+              {abbreviateNumber(parseInt(votes.weight) / 1000000000000000000)}
+            </td>
+          </tr>
+        )
+      );
 
   return (
     <div className={styles.content2}>

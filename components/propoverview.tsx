@@ -7,45 +7,6 @@ type Props = {};
 
 export default function PropOverview({}: Props) {
   const { loading, error, data } = useQuery(GET_PROPOSAL_STATES);
-  console.log();
-  const proposals = [
-    {
-      id: "SIF22",
-      status: "Active",
-      description:
-        "Lorem ipsum dolor sit amet consectetur. Vestibulum ante eget amet posuere pharetra a. Nunc purus lacus fermentum porta. Lacinia.",
-    },
-    {
-      id: "SIF23",
-      status: "Closed",
-      description:
-        "Lorem ipsum dolor sit amet consectetur. Vestibulum ante eget amet posuere pharetra a. Nunc purus lacus fermentum porta. Lacinia.",
-    },
-    {
-      id: "SIF24",
-      status: "Closed",
-      description:
-        "Lorem ipsum dolor sit amet consectetur. Vestibulum ante eget amet posuere pharetra a. Nunc purus lacus fermentum porta. Lacinia.",
-    },
-    {
-      id: "SIF25",
-      status: "Closed",
-      description:
-        "Lorem ipsum dolor sit amet consectetur. Vestibulum ante eget amet posuere pharetra a. Nunc purus lacus fermentum porta. Lacinia.",
-    },
-    {
-      id: "SIF26",
-      status: "Closed",
-      description:
-        "Lorem ipsum dolor sit amet consectetur. Vestibulum ante eget amet posuere pharetra a. Nunc purus lacus fermentum porta. Lacinia.",
-    },
-    {
-      id: "SIF27",
-      status: "Closed",
-      description:
-        "Lorem ipsum dolor sit amet consectetur. Vestibulum ante eget amet posuere pharetra a. Nunc purus lacus fermentum porta. Lacinia.",
-    },
-  ];
 
   const singleprops = loading
     ? "loading..."
@@ -68,7 +29,7 @@ export default function PropOverview({}: Props) {
                   : { color: "#E94D94" }
               }
             >
-              {proposal.isActive == true ? "Active" : "Expired"}
+              {proposal.isActive == true ? "Active" : "Closed"}
             </h4>
           </div>
           <p className={styles.desc}>

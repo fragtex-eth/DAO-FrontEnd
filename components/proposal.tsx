@@ -14,7 +14,7 @@ import {
 import { ToastContainer, toast } from "react-toastify";
 
 type Props = {};
-const GovernaceContractAddress = "0x324651Fbce9808E6E7D536f2A23dDe09DcEf66df";
+const GovernaceContractAddress = "0x8c3a35963C75D17fC02b98e9Fb6dCbB4324a48c6";
 
 export default function Proposal({}: Props) {
   const [vote, setVote] = useState(2);
@@ -39,7 +39,7 @@ export default function Proposal({}: Props) {
         address: GovernaceContractAddress,
         abi: GovernorContract.abi,
         functionName: "castVote",
-        args: [data.proposalCreateds[0].proposalId, vote],
+        args: [`${data.proposalCreateds[0].proposalId}`, vote],
       });
       const transaction = await writeContract(config);
       setTransaction(1);
@@ -69,7 +69,8 @@ export default function Proposal({}: Props) {
   return (
     <div className={styles.wholesec}>
       <h1>
-        {"Proposal #" + loading
+        Proposal #
+        {loading
           ? "loading..."
           : data.proposalCreateds[0].proposalId.substring(0, 5)}
       </h1>

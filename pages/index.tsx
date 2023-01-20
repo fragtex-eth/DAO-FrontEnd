@@ -1,7 +1,5 @@
 import Head from "next/head";
-import Image from "next/image";
-import { Inter } from "@next/font/google";
-import styles from "@/styles/Home.module.css";
+
 import Navigation from "@/components/navigation";
 import Main from "@/components/main";
 import { ApolloProvider, ApolloClient, InMemoryCache } from "@apollo/client";
@@ -19,10 +17,18 @@ import { publicProvider } from "wagmi/providers/public";
 import "react-toastify/dist/ReactToastify.css";
 const client = new ApolloClient({
   cache: new InMemoryCache(),
-  uri: "https://api.studio.thegraph.com/query/37184/simple-dao/v0.0.2",
+  uri: "https://api.studio.thegraph.com/query/37184/simple-dao/v0.0.7",
 });
 
-const { chains, provider } = configureChains([goerli], [publicProvider()]);
+const { chains, provider } = configureChains(
+  [goerli],
+
+  [
+    //@ts-ignore
+    alchemyProvider({ apiKey: process.env.NEXT_PUBLIC_ALCHEMY_ID }),
+    publicProvider(),
+  ]
+);
 
 const { connectors } = getDefaultWallets({
   appName: "DAO Coinsensus",

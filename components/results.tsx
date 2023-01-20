@@ -1,15 +1,49 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styles from "@/styles/sidebar.module.css";
 import abbreviateNumber from "./convertnumber";
+import GovernorContract from "../utils/GovernaceContract.json";
+import { readContracts } from "@wagmi/core";
+import { GET_PROPOSALS_CREATED } from "./graphFetch";
+import { useQuery } from "@apollo/client";
 type Props = {};
 
 export default function Results({}: Props) {
   const [allocation, setAllocation] = useState({
-    for: 333,
-    against: 123,
-    abstain: 87,
+    for: 0,
+    against: 0,
+    abstain: 0,
     target: 123213,
   });
+  const { loading, error, data } = useQuery(GET_PROPOSALS_CREATED);
+  const GovernaceContractAddress = "0x8c3a35963C75D17fC02b98e9Fb6dCbB4324a48c6";
+
+  async function getData() {
+    const data2 = await readContracts({
+      contracts: [
+        {
+          //@ts-ignore
+          address: GovernaceContractAddress,
+          abi: GovernorContract.abi,
+          functionName: "proposalVotes",
+          args: [`${data.proposalCreateds[0].proposalId}`],
+        },
+      ],
+    });
+
+    setAllocation({
+      //@ts-ignore
+      for: parseInt(data2[0][1]._hex, 16),
+      //@ts-ignore
+      against: parseInt(data2[0][0]._hex, 16),
+      //@ts-ignore
+      abstain: parseInt(data2[0][2]._hex, 16),
+      target: 12323,
+    });
+  }
+
+  useEffect(() => {
+    if (loading === false) getData();
+  }, [loading]);
 
   return (
     <div className={styles.content}>
