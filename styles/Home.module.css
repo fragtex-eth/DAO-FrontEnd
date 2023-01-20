@@ -3,6 +3,12 @@
 
   text-align: center;
 }
+.main2 {
+  display: flex;
+
+  text-align: center;
+  margin-top: 30px;
+}
 .content {
   margin-top: 15px;
   margin-left: 15px;

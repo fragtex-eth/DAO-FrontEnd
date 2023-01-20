@@ -150,3 +150,16 @@ progress::-webkit-progress-value {
 progress::-moz-progress-bar {
   /* style rules */
 }
+
+button:disabled {
+  filter: grayscale(100%);
+  cursor: default !important;
+}
+
+button:disabled:active {
+  transform: translateY(0px);
+}
+button:disabled:hover {
+  transform: translateY(0px);
+  box-shadow: none;
+}
