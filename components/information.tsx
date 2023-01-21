@@ -8,11 +8,9 @@ import axios from "axios";
 
 export default function Information({}: any) {
   const { loading, error, data } = useQuery(GET_PROPOSALS_CREATED);
-  const [count, setCount] = useState(0);
   const [startDate, setStartDate] = useState(0);
   const [endDate, setEndDate] = useState(0);
 
-  loading ? "loading..." : console.log(data.proposalCreateds[0].startBlock);
   let response: any = null;
   let response2: any = null;
   useEffect(() => {

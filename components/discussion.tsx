@@ -10,7 +10,6 @@ export default function Discussion({}: Props) {
   const [proposalId, setProposalId] = useState(
     "108126991459394426992428236085723529571472394200392151437941366981754403947842"
   );
-  console.log(loading ? "loading" : data.voteCasts[0]);
 
   const allComments = loading
     ? "loading"

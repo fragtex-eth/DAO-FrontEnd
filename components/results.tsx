@@ -9,9 +9,9 @@ type Props = {};
 
 export default function Results({}: Props) {
   const [allocation, setAllocation] = useState({
-    for: 0,
-    against: 0,
-    abstain: 0,
+    for: 10,
+    against: 10,
+    abstain: 10,
     target: 123213,
   });
   const { loading, error, data } = useQuery(GET_PROPOSALS_CREATED);
@@ -42,7 +42,7 @@ export default function Results({}: Props) {
   }
 
   useEffect(() => {
-    if (loading === false) getData();
+    if (loading === false && !error) getData();
   }, [loading]);
 
   return (

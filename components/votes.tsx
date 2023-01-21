@@ -11,7 +11,6 @@ export default function Votes({}: Props) {
   );
   const { loading, error, data } = useQuery(GET_VOTE_CAST);
 
-  console.log(loading ? "loading" : data.voteCasts[0]);
   const voteMeaning = ["No", "Yes", "Abstain"];
 
   const allVotes = loading
@@ -20,7 +19,7 @@ export default function Votes({}: Props) {
         parseInt(votes.weight) === 0 || votes.proposalId !== proposalId ? (
           ""
         ) : (
-          <tr key={votes.address}>
+          <tr key={votes.address + votes.proposalId}>
             <td className={styles.address}>
               {votes.voter.slice(0, 4)}...{votes.voter.slice(-4)}
             </td>
@@ -36,9 +35,13 @@ export default function Votes({}: Props) {
     <div className={styles.content2}>
       <h2>Votes</h2>
       <div className={styles.rect}>
-        <table className={styles.tablei}>
-          <tbody>{allVotes}</tbody>
-        </table>
+        {loading ? (
+          "loading"
+        ) : (
+          <table className={styles.tablei}>
+            <tbody>{allVotes}</tbody>
+          </table>
+        )}
       </div>
     </div>
   );

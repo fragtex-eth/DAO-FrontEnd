@@ -46,6 +46,7 @@ body {
   max-width: 100%;
   background: var(--background-color);
   min-height: 100%;
+  padding-top: 0 !important;
 }
 button {
   all: unset;
